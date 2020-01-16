@@ -1,6 +1,6 @@
 #!/bin/sh 
 
-dir=/home/plank/cs302/Labs/Lab1
+dir=/home/jplank/cs302/Labs/Lab1
 ge="$dir/Gradescript-Examples"
 
 if [ $# -ne 0 ]; then
