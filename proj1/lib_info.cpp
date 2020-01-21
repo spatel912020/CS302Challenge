@@ -10,6 +10,7 @@
 using namespace std;
 /*
  * Shreyank Patel
+ * Nicholas Hodge
  */
 
 struct Song {
@@ -61,29 +62,35 @@ int main(int argc, char*argv[]){
 		return 0;
 	}
 
-	
+	//read in the data from the file and extract the info
 	getline(fin, line);
+	//create a new song with extracted data
 	Song* song = extract_info_from_string(line);
+	//create a new album with extracted data
 	Album* album = new Album();
-
+	//assign album data to the album variables
 	album->name = song->album;
 	album->time = song->time;
 	album->nsongs = 1;
+	//insert the song into the album
 	album->songs.insert(pair<int, Song*>(song->track, song));	
 	
+	//create a new artist with extracted data
 	Artist* artist = new Artist();
-	
+	//assign artist data to the artist variables
 	artist->albums.insert(pair<string, Album*>(album->name, album));
 	artist->name = song->artist;
 	artist->time = song->time;
 	artist->nsongs = 1;
-	
+	//insert artist into map of artists
 	all_artist.insert(pair<string, Artist*>(artist->name, artist));
 
+	//loop through remaining songs, while comparing them to the current songs to create albums and artists as needed	
 	while(getline(fin, line)){
 		Song* song = extract_info_from_string(line);
 		map <string, Artist*>::iterator found_artist;
 		found_artist = all_artist.find(song->artist);
+		//if we can't find the artist, create a new album and artist and assign the song to them
 		if(found_artist == all_artist.end()){			
 			Album* album = new Album();
 			
@@ -100,6 +107,7 @@ int main(int argc, char*argv[]){
 			artist->nsongs = 1;
 			all_artist.insert(pair<string, Artist*>(artist->name, artist));
 		}
+		//if we found the artist, see if the album already exists
 		else{
 
 			found_artist->second->time += song->time;
@@ -145,17 +153,19 @@ int main(int argc, char*argv[]){
 	map <string, Artist*>::iterator print_artist; 
 	print_artist = all_artist.begin();
 	string time_temp;
+	//loop through the artists map
 	for(print_artist; print_artist != all_artist.end(); print_artist++){
 		time_temp = convert_time_to_string(print_artist->second->time);
 		cout<<print_artist->first<<": "<<print_artist->second->nsongs<<", "<<time_temp<<endl;
 		map<string, Album*>::iterator print_album; 
 		print_album = print_artist->second->albums.begin();
+		//loop through the albums map
 		for(print_album; print_album != print_artist->second->albums.end(); print_album++){
 			time_temp = convert_time_to_string(print_album->second->time);
 			cout<<"        "<<print_album->first<<": "<<print_album->second->nsongs<<", "<<time_temp<<endl;
 			map<int, Song*>::iterator print_song;
 			print_song = print_album->second->songs.begin();
-			
+			//loop through the songs map
 			for(print_song; print_song != print_album->second->songs.end(); print_song++){
 
 				time_temp = convert_time_to_string(print_song->second->time);
