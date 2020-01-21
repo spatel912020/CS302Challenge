@@ -11,6 +11,10 @@ using namespace std;
 /*
  * Shreyank Patel
  * Nicholas Hodge
+ *
+ *Github Repo: https://github.com/spatel912020/CS302_Projects.git
+ *
+ *compile using g++ -o lib_info lib_info.cpp
  */
 
 struct Song {
