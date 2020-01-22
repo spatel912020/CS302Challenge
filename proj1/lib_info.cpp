@@ -14,7 +14,7 @@ using namespace std;
  *
  *Github Repo: https://github.com/spatel912020/CS302_Projects.git
  *
- *compile using g++ -o lib_info lib_info.cpp
+ *compile using g++ -std=c++11 lib_info.cpp -o lib_info 
  */
 
 struct Song {
