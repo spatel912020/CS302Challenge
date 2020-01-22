@@ -1,0 +1,10 @@
+Nicholas Hodge, Git handle: machodge
+Shreyank Patel, Git handle: spatel912020
+
+Github repo: https://github.com/spatel912020/CS302_Projects.git
+
+I mainly worked on the functions and print statements while Shreyank worked on the main function and handling the git repo. This was my first time using git so there were a few hiccups along the road, but working with a partner helped me figure it out.
+
+I'm proud of how I coded the functions. I believe that I coded them rather effeciently.
+
+The thing I had the mosts trouble with was deciding whether or not to use C or C++ for most of my coding. I restarted a couple of times because my code would be a mess of both languages. In the end I decided to adopt a more C++ oriented approach
