@@ -1,4 +1,4 @@
-// Challenge 01: Rotating Arrays; null solution
+// Challenge 02
 #include <iostream>
 #include <vector>
 #include <map>
